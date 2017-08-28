@@ -35,3 +35,5 @@ gem 'jquery-rails'
 gem 'turbolinks'
 
 gem 'bootstrap-sass'
+
+gem 'pry-rails', :group => :development
