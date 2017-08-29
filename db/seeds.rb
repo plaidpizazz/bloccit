@@ -21,6 +21,20 @@ posts = Post.all
   )
 end
 
+# Idempotence Post
+puts "#{Post.count}"
+Post.find_or_create_by!(
+  title: "This is a unique Post!",
+  body:   "This post has a unique body."
+)
+puts "#{Post.count}"
+
+puts "#{Comment.count}"
+Comment.find_or_create_by!(
+  body: "This is a unique body for the post!"
+)
+puts "#{Comment.count}"
+
 puts "Seed finished"
 puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"
