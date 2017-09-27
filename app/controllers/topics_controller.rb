@@ -5,6 +5,7 @@ class TopicsController < ApplicationController
 
   def show
     @topic = Topic.find(params[:id])
+    @sponsored_post = SponsoredPost.find(params[:id])
   end
 
   def new
@@ -13,9 +14,10 @@ class TopicsController < ApplicationController
 
   def create
     @topic = Topic.new
+    @sponsored_post = SponsoredPost.find(params[:id])
     @topic.name = params[:topic][:name]
     @topic.description = params[:topic][:description]
-    @topic.public = params[:topic][:publid]
+    @topic.public = params[:topic][:public]
 
     if @topic.save
       redirect_to @topic, notice: "Topic was saved successfully."
