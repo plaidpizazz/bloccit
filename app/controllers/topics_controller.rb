@@ -14,7 +14,7 @@ class TopicsController < ApplicationController
 
   def create
     @topic = Topic.new
-    @sponsored_post = SponsoredPost.find(params[:id])
+    # @sponsored_post = SponsoredPost.find(params[:id])
     @topic.name = params[:topic][:name]
     @topic.description = params[:topic][:description]
     @topic.public = params[:topic][:public]
