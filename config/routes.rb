@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 # #7
   resources :users, only: [:new, :create]
 
+  resources :sessions, only: [:new, :create, :destroy]
+
   get 'about' => 'welcome#about'
 
   root 'welcome#index'
