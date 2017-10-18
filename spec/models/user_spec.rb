@@ -4,6 +4,7 @@ RSpec.describe User, type: :model do
   let(:user) { User.create!(name: "Bloccit User", email: "user@bloccit.com", password: "password") }
 
   it { is_expected.to have_many(:posts) }
+  it { is_expected.to have_many(:comments) }
 
   # Shoulda tests for name
   it { is_expected.to validate_presence_of(:name) }
@@ -24,23 +25,21 @@ RSpec.describe User, type: :model do
     it "should have name and email attributes" do
       expect(user).to have_attributes(name: "Bloccit User", email: "user@bloccit.com")
     end
-# #1
+
     it "responds to role" do
       expect(user).to respond_to(:role)
     end
-# #2
+
     it "responds to admin?" do
       expect(user).to respond_to(:admin?)
     end
 
-# #3
     it "responds to member?" do
       expect(user).to respond_to(:member?)
     end
   end
 
   describe "roles" do
-# #4
     it "is member by default" do
       expect(user.role).to eql("member")
     end
@@ -55,7 +54,6 @@ RSpec.describe User, type: :model do
       end
     end
 
-# #6
     context "admin user" do
       before do
         user.admin!
