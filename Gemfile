@@ -39,3 +39,6 @@ gem 'bootstrap-sass'
 
 # Used for encrypting User passwords
 gem 'bcrypt'
+
+# Used for figaro to securely configure Rails applications
+gem 'figaro', '1.0'
